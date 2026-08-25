@@ -1,0 +1,91 @@
+/* Mobile-first responsive styles for Pilot Facts */
+
+:root {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --touch-target-min: 44px;
+  --content-max-width: 800px;
+}
+
+.app-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Fluid typography */
+h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 3vw, 2rem); }
+p { font-size: clamp(1rem, 2vw, 1.125rem); line-height: 1.6; }
+
+/* Touch-friendly buttons */
+button, .btn {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Responsive grid for lesson cards */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .lesson-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lesson-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Quiz layout adjustments */
+.quiz-container {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .quiz-container {
+    padding: 2rem;
+  }
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.quiz-option:hover, .quiz-option:focus {
+  border-color: #0066cc;
+  background-color: #f0f7ff;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #0066cc;
+  transition: width 0.3s ease;
+}
